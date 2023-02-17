@@ -1,7 +1,7 @@
 name: periodic workflow
 on:
   schedule:
-    - cron: "55 05 * * *"
+    - cron: "* * * * *"
 jobs:
   run-batch-file:
     runs-on: windows-latest
