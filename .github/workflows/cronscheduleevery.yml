@@ -1,4 +1,4 @@
-name: periodic workflow
+name: cronscheduleevery workflow
 on:
   schedule:
     - cron: "* * * * *"
