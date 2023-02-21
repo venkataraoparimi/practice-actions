@@ -1,0 +1,14 @@
+jobs:
+  send-email:
+    runs-on: windows-latest
+    steps:
+    - name: Send email
+      uses: venkat/action-send-mail@v3
+      with:
+        server_address: smtp.gmail.com
+        server_port: 465
+        username: ${{ Venkatarao }}
+        password: ${{ yovmiybwckixnypy }}
+        subject: Email Triggered
+        body: An email has been triggered by a push to the main branch.
+        to: venkatparimi5408@gmail.com.com
