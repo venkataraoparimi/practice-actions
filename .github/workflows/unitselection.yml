@@ -29,7 +29,7 @@ on:
         options:
           - Box
           - allclr
-          - data
+          - calender
 
 jobs:
   build:
