@@ -16,7 +16,7 @@ jobs:
         run: .\allclr.bat
 
       - name: Send email
-        uses: venkataraoparimi/practice-actions-send-mail@v3
+        uses:  venkataraoparimi/practice-actions/blob/main/.github/workflows/triggeremail.yml-send-mail@v3
         with:
           server_address: smtp.gmail.com
           server_port: 587
