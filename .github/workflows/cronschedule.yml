@@ -1,6 +1,9 @@
 name: cronschedule workflow
-
-on: [workflow_dispatch]
+on:
+   schedule:
+    - cron: "* * * * *"
+   workflow_dispatch:
+    
 env:
   MAIL_USER_EMAIL: ${{secrets.MAIL_USER_EMAIL}}
   MAIL_USER_PASSWORD: ${{secrets.MAIL_USER_PASSWORD}}
