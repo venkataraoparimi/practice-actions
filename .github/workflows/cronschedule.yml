@@ -11,8 +11,8 @@ env:
   MAIL_TO: ${{secrets.MAIL_TO}}
 
 jobs:
-  report:
-    runs-on: ubuntu-latest
+  build:
+    runs-on: windows-latest
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
