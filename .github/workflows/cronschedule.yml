@@ -1,9 +1,9 @@
 name: cronschedule workflow
 on:
-   schedule:
-    - cron: "* * * * * *"
-   workflow_dispatch:   
-    
+  schedule:
+    - cron: "* * * * *"
+  workflow_dispatch:
+
 env:
   MAIL_USER_EMAIL: ${{secrets.MAIL_USER_EMAIL}}
   MAIL_USER_PASSWORD: ${{secrets.MAIL_USER_PASSWORD}}
@@ -12,11 +12,12 @@ env:
 
 jobs:
   run-batch-file:
+    name: Run batch files
     runs-on: windows-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Run batch file1
+      - name: Run Box.bat
         run: .\Box.bat
-      - name: Run batch file2
+      - name: Run allclr.bat
         run: .\allclr.bat
