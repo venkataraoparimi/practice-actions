@@ -11,7 +11,7 @@ env:
   MAIL_TO: ${{secrets.MAIL_TO}}
 
 jobs:
-  build:
+  report:
     runs-on: windows-latest
     steps:
     - name: Checkout code
