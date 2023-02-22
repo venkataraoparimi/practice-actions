@@ -1,0 +1,30 @@
+name: Send email notifications
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  run-batch-file:
+    name: Run batch files
+    runs-on: windows-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Run Box.bat
+        run: .\Box.bat
+      - name: Run allclr.bat
+        run: .\allclr.bat
+
+      - name: Send email
+        uses: practice/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 587
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          subject: New commit on master branch
+          to: venkatparimi5408@gmail.com, parimi.venkatarao1662@cientra.com
+          from: parimivenkat5408@gmail.com
+          body: A new commit has been made to the master branch.
