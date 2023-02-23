@@ -15,7 +15,7 @@ jobs:
           server_port: 465
           username: ${{ secrets.EMAIL_USERNAME }}
           password: ${{ secrets.EMAIL_PASSWORD }}
-          from: parimivenkat5408@gmail.com
+          from: noreply.servicecenter@gmail.com
           subject: Email Notification
           body: 'Hello, this is a test email!'
           to: parimi.venkatarao1662@cientra.com,praveen.kumar1463@cientra.com,muralidhar.reddy1655@cientra.com
