@@ -15,12 +15,12 @@ jobs:
          token: ${{ secrets.ACCESS_TOKEN }}
       - name: Report
         run: |
-          cp C:\Users\ParimiV\Desktop\sample.txt\C:\actions-runner\Reports
+          cp C:\Users\ParimiV\Desktop\sample.txt\ C:\actions-runner\_work\practice-actions\practice-actions\Reports
       - name: Commit and push changes
         run: |
           git config --global user.name 'venkatarao'
           git config --global user.email 'parimivenkat5408@gmail.com'
-          git add C:\actions-runner\Reports\.
+          git add C:\actions-runner\_work\practice-actions\practice-actions\Reports\.
           git commit -m "Committing report changes"
           git push
       - name: Send email
