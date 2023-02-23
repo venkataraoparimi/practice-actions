@@ -35,4 +35,4 @@ jobs:
             This email contains an attachment.
           from: No-Reply
           to: parimi.venkatarao1662@cientra.com
-          attachments: 'Reports/sample.txt'
+          attachments: 'Reports\sample.txt'
