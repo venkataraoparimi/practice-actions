@@ -1,7 +1,7 @@
 name: Commit Reports
 on:
   schedule:
-    - cron: '0 0 * * *'
+    - cron: '* * * * *'
 
 jobs:
   commit-reports:
