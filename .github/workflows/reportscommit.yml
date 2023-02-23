@@ -1,23 +1,38 @@
-name: Commit Reports
+name: Send email with attachment
 on:
-  schedule:
-    - cron: '* * * * *'
-
+  push:
+    branches:
+      - main
 jobs:
-  commit-reports:
-    runs-on: windows-latest
+  send-email:
+    runs-on: self-hosted
     steps:
-      - name: Checkout Code
+      - name: Checkout code
         uses: actions/checkout@v2
-
-      - name: Generate Reports
-        run: |
-          # Code to generate reports
-
-      - name: Commit Reports
-        uses: EndBug/add-and-commit@v7.0.0
+      - name: Authenticate with GitHub
+        uses: actions/checkout@v2
         with:
-          author_name: Venkatarao
-          author_email: parimi.venkatarao1662@cientra.com
-          message: "Auto-commit reports"
-          add: "venkataraoparimi/practice-actions/blob/main/reports*"
+         token: ${{ secrets.ACCESS_TOKEN }}
+      - name: Report
+        run: |
+          cp C:\Users\ParimiV\Desktop\sample.txt C:\actions-runner\Reports\
+      - name: Commit and push changes
+        run: |
+          git config --global user.name 'venkatarao'
+          git config --global user.email 'parimivenkat5408@gmail.com'
+          git add C:\actions-runner\Reports\.
+          git commit -m "Committing report changes"
+          git push
+      - name: Send email
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 587
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          subject: Email with attachment
+          body: |
+            This email contains an attachment.
+          from: No-Reply
+          to: parimi.venkatarao1662@cientra.com
+          attachments: 'Reports/sample.txt'
