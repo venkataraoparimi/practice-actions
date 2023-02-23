@@ -1,0 +1,23 @@
+name: Commit Reports
+on:
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  commit-reports:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Generate Reports
+        run: |
+          # Code to generate reports
+
+      - name: Commit Reports
+        uses: EndBug/add-and-commit@v7.0.0
+        with:
+          author_name: Venkatarao
+          author_email: parimi.venkatarao1662@cientra.com
+          message: "Auto-commit reports"
+          add: "C:\Users\ParimiV\Documents\Reports*"
