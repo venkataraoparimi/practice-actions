@@ -1,0 +1,33 @@
+name: Email notification on commit with report
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  email-notification:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Generate report
+        run: |
+          # Add commands to generate report here
+          echo "Report for commit ${{ github.sha }}" > report.txt
+          echo "Commit message: ${{ github.event.head_commit.message }}" >> report.txt
+          echo "Commit author: ${{ github.event.head_commit.author.name }}" >> report.txt
+
+      - name: Send email notification
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          subject: "Commit notification"
+          to: venkatparimi5408@gmail.com
+          body: "A new commit has been made to the repository."
+          attachments: |
+            report.txt
