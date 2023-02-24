@@ -30,7 +30,7 @@ jobs:
           server_port: 587
           username: ${{ secrets.EMAIL_USERNAME }}
           password: ${{ secrets.EMAIL_PASSWORD }}
-          subject: Good Morning team  .
+          subject: Good Morning  .
           body: |
             This email contains an attachment.
           from: No-Reply
